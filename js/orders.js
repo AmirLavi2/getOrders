@@ -1,7 +1,8 @@
 $(() => {
-
+    
+    $('#byDates').submit(orders);
+    
     const orders = event => {
-        // console.log('orders func');
         event.preventDefault();
 
         let startDate = $('#startDate').val();
@@ -17,8 +18,6 @@ $(() => {
     }
 
     const fetchData = (url, params) => {
-        // console.log('fetchData func');
-
         $.get(url, params)
             .done(response => {
                 jsonToArray(JSON.parse(response));
@@ -29,8 +28,6 @@ $(() => {
     }
 
     const jsonToArray = ordersJson => {
-        // console.log('jsonToArray func');
-
         let ordersArr = [];
         for (let key in ordersJson) {
             ordersArr.push(Object.values(ordersJson[key]));
@@ -41,8 +38,6 @@ $(() => {
 
     
     const arrayToTable = arr => {
-        // console.log('arrayToTable func');
-
         let number = 1; 
         arr.forEach(element => {
 
@@ -56,7 +51,6 @@ $(() => {
             // add data to the row
             th.text(number);
             number++;
-
             td0.text(element[0]);
             td1.text(element[1]);
             td2.text(element[2]);
@@ -67,7 +61,5 @@ $(() => {
         });
 
     }
-
-    $('#byDates').submit(orders);
 
 });
