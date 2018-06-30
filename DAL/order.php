@@ -5,28 +5,20 @@ class Order{
     public $orderId;   
 
     public function getOrderData($orderId){
-        $query = "SELECT * FROM orders WHERE orderId = $orderId";
+        
+        $query = "SELECT orderId, orderDate, orderComments FROM orders 
+            WHERE orderId = $orderId";
+        
         $result = connectToDB($query);
-        $adminsInfo = mysqli_fetch_all($result,MYSQLI_ASSOC);
+        $data = mysqli_fetch_all($result,MYSQLI_ASSOC);
         Database::closeConnection();
         
-        foreach($adminsInfo[0] as $res) {
-            // header('content-Type: text/html');
-
-            return $res;
+        $ret = array();
+        foreach($data as $arr) {
+            array_push($ret, $arr);
         }
+        return $ret;
     }
 }
-
-if(isset($_POST['id1']) && !empty($_POST['id1'])){
-    $id = $_POST['id1'];   
-    
-    $order2 = new Order();
-    $order2->getOrderData($id);
-    header('Content-Type: application/json');
-    echo json_decode($res);
-}
-
-
 
 ?>
