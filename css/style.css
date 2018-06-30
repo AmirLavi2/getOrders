@@ -1,0 +1,15 @@
+.headline{
+    text-align:center;
+}
+#d1{
+    background-color: salmon; 
+}
+#d2{
+    background-color: blueviolet;
+}
+#d3{
+    background-color: brown;
+}
+#ordersTable{
+    /* border: 1px solid seagreen; */
+}
