@@ -14,6 +14,7 @@ class Orders{
         $result = connectToDB($query);
         $data = mysqli_fetch_all($result,MYSQLI_ASSOC);
         Database::closeConnection();
+        
         $ret = array();
         foreach($data as $arr) {
             array_push($ret, $arr);
