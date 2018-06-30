@@ -5,8 +5,8 @@ class Database {
     private $connection;
     private static $_instance;
     private $host = 'localhost';
-    private $username = 'root';
-    private $password = '';
+    private $username = 'amir';
+    private $password = 'password';
     private $_db = 'mydb';
 
     public static function getInstance(){
