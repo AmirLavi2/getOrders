@@ -48,21 +48,21 @@ $(() => {
 
             // create new row
             let tr = $('<tr>');
+            let th = $('<th>');
             let td0 = $('<td>');
             let td1 = $('<td>');
             let td2 = $('<td>');
-            let td3 = $('<td>');
 
             // add data to the row
-            td0.text(number);
+            th.text(number);
             number++;
 
-            td1.text(element[0]);
-            td2.text(element[1]);
-            td3.text(element[2]);
+            td0.text(element[0]);
+            td1.text(element[1]);
+            td2.text(element[2]);
 
             // push the new row to   table
-            tr.append(td0, td1, td2, td3);
+            tr.append(th, td0, td1, td2);
             tr.appendTo('#ordersTable tbody');
         });
 
