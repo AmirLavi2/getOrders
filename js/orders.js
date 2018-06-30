@@ -1,7 +1,6 @@
 $(() => {
-    
-    $('#byDates').submit(orders);
-    
+
+    // submit handler
     const orders = event => {
         event.preventDefault();
 
@@ -17,6 +16,7 @@ $(() => {
         fetchData(url, params);
     }
 
+    // get request
     const fetchData = (url, params) => {
         $.get(url, params)
             .done(response => {
@@ -36,9 +36,11 @@ $(() => {
         arrayToTable(ordersArr);
     }
 
-    
     const arrayToTable = arr => {
         let number = 1; 
+        $('#ordersTable tbody').empty(); // clean the past result
+
+        // loop on the result
         arr.forEach(element => {
 
             // create new row
@@ -59,7 +61,8 @@ $(() => {
             tr.append(th, td0, td1, td2);
             tr.appendTo('#ordersTable tbody');
         });
+    } // end of arrayToTable func
 
-    }
+	$('#byDates').submit(orders);
 
 });
